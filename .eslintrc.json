@@ -1,3 +1,16 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "prefer-const": "error" // activamos prefer-const para todo el proyecto
+  },
+  "overrides": [
+    {
+      "files": ["./src/components/ui/**/*"],
+      "rules": {
+        "prefer-const": "off",
+        "@typescript-eslint/no-unused-vars": "off", // para archivos TypeScript
+        "react/react-in-jsx-scope": "off"
+      }
+    }
+  ]
 }
