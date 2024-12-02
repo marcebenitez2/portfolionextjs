@@ -27,7 +27,7 @@ export function Projects() {
           Lo puedes programar
         </Highlight>
         &quot;
-        <p className="text-sm text-gray-500">- Programador ATS</p>
+        <p className="text-sm text-gray-500 md:hidden">- Programador ATS</p>
         <span className="absolute bottom-[-30px] left-2/3 transform text-sm text-gray-500 hidden md:block">
           - Programador ATS
         </span>

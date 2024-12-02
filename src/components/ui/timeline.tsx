@@ -14,6 +14,7 @@ interface TimelineEntry {
   description: string;
   achievements?: string[];
   imageUrl?: string;
+  companyLink?: string;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
@@ -126,7 +127,18 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               >
                 {entry.company && (
                   <h4 className="text-xl font-semibold mb-4 text-white">
-                    {entry.company}
+                    {entry.companyLink ? (
+                      <a
+                        href={entry.companyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-purple-400 transition-colors duration-300"
+                      >
+                        {entry.company}
+                      </a>
+                    ) : (
+                      entry.company
+                    )}
                   </h4>
                 )}
 
