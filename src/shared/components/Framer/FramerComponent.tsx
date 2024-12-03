@@ -1,3 +1,4 @@
+"use client";
 // FramerComponent.tsx
 import { motion } from "framer-motion";
 import type { ComponentProps } from "react";

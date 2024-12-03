@@ -1,4 +1,3 @@
-"use client";
 import { SparklesCore } from "@/components/ui/sparkles";
 import FramerComponent from "@/shared/components/Framer/FramerComponent";
 import React from "react";

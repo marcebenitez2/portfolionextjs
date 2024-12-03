@@ -1,4 +1,5 @@
-import { SignupFormDemo } from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
+import SocialLinks from "@/components/ui/social";
 import { Timeline } from "@/components/ui/timeline";
 import { Hero } from "@/modules/Home/Components/Hero";
 import { Projects } from "@/modules/Home/Components/Projects";
@@ -13,7 +14,8 @@ export default function Home() {
       <Projects />
       <Timeline data={data} />
       <SkillsSection />
-      <SignupFormDemo />
+      <SocialLinks />
+      <Form />
     </main>
   );
 }
