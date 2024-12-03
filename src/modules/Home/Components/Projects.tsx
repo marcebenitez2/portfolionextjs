@@ -7,36 +7,39 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
-const projectsData = [
+const projects = [
   {
-    title: "E-commerce Platform",
-    description: "Plataforma de comercio electrónico con integración de pagos",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    imageUrl: "/projects/ecommerce.png",
-    githubUrl: "https://github.com/usuario/proyecto-ecommerce",
-    liveUrl: "https://mi-ecommerce.vercel.app",
+    title: "Landing Page para UESEVI",
+    description:
+      "Diseño de una landing page para UESEVI con el objetivo de dar a conocer su identidad y servicios. La página destaca los valores del gremio y facilita el acceso a información clave para miembros y público en general, con un diseño limpio y profesional.",
+    image: "/4.png",
   },
   {
-    title: "Social Media Dashboard",
+    title: "Panel de Administración para UESEVI",
     description:
-      "Panel de análisis para redes sociales con gráficos en tiempo real",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Chart.js"],
-    imageUrl: "/projects/dashboard.png",
-    githubUrl: "https://github.com/usuario/social-dashboard",
-    liveUrl: "https://mi-dashboard.vercel.app",
+      "Desarrollo de un panel de administración para UESEVI, el gremio de empleados de seguridad y vigilancia de Rosario. La plataforma permite gestionar información interna de manera eficiente, con herramientas avanzadas para la administración de datos y la generación de informes.",
+    image: "/3.png",
   },
   {
-    title: "Task Management App",
+    title: "E-commerce de Tecnología",
     description:
-      "Aplicación de gestión de tareas con autenticación y colaboración",
-    technologies: ["React", "Firebase", "Redux"],
-    imageUrl: "/projects/tasks.png",
-    githubUrl: "https://github.com/usuario/task-manager",
-    liveUrl: "https://mi-task-app.vercel.app",
+      "Creación de un e-commerce especializado en productos de tecnología. Esta plataforma permite a los usuarios explorar una amplia gama de productos y, en lugar de realizar compras directamente, se redirige al chat con el vendedor para coordinar la compra, facilitando así una comunicación más directa y personalizada.",
+    image: "/2.png",
+  },
+  {
+    title: "John Pellegrini Management Group",
+    description:
+      "Desarrollo de una plataforma administrativa para John Pellegrini Management Group, una aseguradora. La solución permite a los empleados gestionar eficientemente la base de datos de clientes, optimizando los procesos internos con un sistema seguro y personalizado.",
+    image: "/1.png",
+  },
+  {
+    title:
+      "Panel de Administración y Sorteos para Mutual de Suboficiales Retirados de Gendarmería Nacional",
+    description:
+      "Desarrollo de un panel de administración con funcionalidades de sorteos para la Mutual de Suboficiales Retirados de Gendarmería Nacional. El sistema permite gestionar la membresía y realizar sorteos de manera automatizada, con reportes en tiempo real y gestión eficiente de la información.",
+    image: "/5.png",
   },
 ];
 
@@ -67,45 +70,37 @@ export function Projects() {
         </h1>
       </FramerComponent>
 
-      <Carousel className="w-full md:pr-16 px-4">
+      <Carousel
+        className="max-w-5xl md:pr-16 px-3"
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+      >
         <CarouselContent>
-          {projectsData.map((project, index) => (
+          {projects.map((project, index) => (
             <CarouselItem key={index}>
-              <div className="p-1">
-                <Card className="overflow-hidden project-card relative h-[40vh] md:h-[70vh] w-full">
-                  <CardContent className="p-0 h-full relative">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-300 project-card:hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 project-card:hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
-                      <div className="opacity-0 project-card:hover:opacity-100 transition-opacity duration-300 text-white text-center">
-                        <h3 className="text-2xl font-bold mb-2">
+              <FramerComponent>
+                <Card className="h-128 overflow-hidden relative group">
+                  <CardContent className="p-0 h-full">
+                    <div className="w-full h-full overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-base lg:text-xl font-bold mb-2">
                           {project.title}
                         </h3>
-                        <div className="flex justify-center space-x-4 mt-4">
-                          <Link
-                            href={project.githubUrl}
-                            target="_blank"
-                            className="hover:scale-110 transition-transform"
-                          >
-                            <ExternalLink size={24} className="text-white" />
-                          </Link>
-                          <Link
-                            href={project.liveUrl}
-                            target="_blank"
-                            className="hover:scale-110 transition-transform"
-                          >
-                            <ExternalLink size={24} className="text-white" />
-                          </Link>
-                        </div>
+                        <p className="text-sm">{project.description}</p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+              </FramerComponent>
             </CarouselItem>
           ))}
         </CarouselContent>

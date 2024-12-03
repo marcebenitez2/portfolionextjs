@@ -1,3 +1,4 @@
+import DownloadButton from "@/components/ui/downloadButton";
 import { SparklesCore } from "@/components/ui/sparkles";
 import FramerComponent from "@/shared/components/Framer/FramerComponent";
 import React from "react";
@@ -32,9 +33,7 @@ export function Hero() {
         <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(170px_150px_at_top,transparent_50%,white)] md:[mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
 
-      <button className="relative md:top-20 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        Descargar CV
-      </button>
+      <DownloadButton /> {/* Aquí utilizas el componente cliente */}
 
       <FramerComponent style="absolute bottom-8 left-1/2 -translate-x-1/2">
         <FramerComponent
@@ -60,5 +59,3 @@ export function Hero() {
     </section>
   );
 }
-
-// Button code
