@@ -14,6 +14,7 @@ export interface FramerComponentProps {
   animationVariants?: ComponentProps<typeof motion.div>["variants"];
   animationExit?: ComponentProps<typeof motion.div>["exit"];
   animationWhileHover?: ComponentProps<typeof motion.div>["whileHover"];
+  animationWhileTap?: ComponentProps<typeof motion.div>["whileTap"];
 }
 
 export default function FramerComponent({
@@ -27,6 +28,7 @@ export default function FramerComponent({
   animationVariants,
   animationExit,
   animationWhileHover,
+  animationWhileTap,
 }: FramerComponentProps) {
   return (
     <motion.div
@@ -39,6 +41,7 @@ export default function FramerComponent({
       variants={animationVariants}
       exit={animationExit}
       whileHover={animationWhileHover}
+      whileTap={animationWhileTap}
     >
       {children}
     </motion.div>

@@ -1,3 +1,4 @@
+import AboutMe from "@/components/ui/aboutMe";
 import { Form } from "@/components/ui/form";
 import SocialLinks from "@/components/ui/social";
 import { Timeline } from "@/components/ui/timeline";
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <Timeline data={data} />
+      <AboutMe />
       <SkillsSection />
       <SocialLinks />
       <Form />
